@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_web/main.dart';
 import 'package:flutter_web/utils/ImageLoader.dart';
 
-import 'http/API.dart';
-import 'model/AdsList.dart';
+import '../http/API.dart';
+import '../model/AdsList.dart';
+import 'MyHomePage.dart';
 
 /// 启动页
 class LaunchPage extends StatefulWidget {
