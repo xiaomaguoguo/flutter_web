@@ -8,7 +8,7 @@ part of 'AdsList.dart';
 
 AdsList _$AdsListFromJson(Map<String, dynamic> json) {
   return AdsList(
-    adsList: (json['adsList'] as List)
+    adsList: (json['adsList'] as List<dynamic>)
         .map((e) => AdsItem.fromJson(e as Map<String, dynamic>))
         .toList(),
   );

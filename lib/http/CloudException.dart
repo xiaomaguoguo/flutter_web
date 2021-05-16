@@ -3,7 +3,7 @@
 class CloudException implements Exception {
 
   int code;
-  String message;
+  var message;
 
   CloudException([this.code = -1, this.message]);
 

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 Widget loadImage(
-    {String imageUrl,
-    Widget placeholder,
+    {required String imageUrl,
+    Widget? placeholder,
     BoxFit fit = BoxFit.fill,
-    double width,
-    double height,
+    double width = double.infinity,
+    double height = double.infinity,
     bool isIconHolder = true}) {
   return CachedNetworkImage(
     imageUrl: imageUrl,

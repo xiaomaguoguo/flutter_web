@@ -4,10 +4,10 @@ part 'AdsList.g.dart';
 
 @JsonSerializable()
 class AdsList {
-  @JsonKey(nullable: false)
+
   List<AdsItem> adsList;
 
-  AdsList({List<AdsItem> adsList}) : adsList = adsList ?? <AdsItem>[];
+  AdsList({required List<AdsItem> adsList}) : adsList = adsList;
 
   factory AdsList.fromJson(Map<String, dynamic> json) =>
       _$AdsListFromJson(json);

@@ -6,7 +6,7 @@ import 'package:flutter_web/utils/ImageLoader.dart';
 
 import '../http/API.dart';
 import '../model/AdsList.dart';
-import 'MyHomePage.dart';
+import 'HomePage.dart';
 
 /// 启动页
 class LaunchPage extends StatefulWidget {
@@ -25,9 +25,9 @@ class LaunchPage extends StatefulWidget {
 
 class LaunchState extends State<LaunchPage> {
 
-  Timer _timer;
+  late Timer _timer;
 
-  AdsItem _adsItem;
+  late AdsItem _adsItem;
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class LaunchState extends State<LaunchPage> {
 
     _timer = Timer(Duration(seconds: 3), () {
       _timer.cancel();
-      Navigator.of(context).pushReplacementNamed(MyHomePage.routeName);
+      Navigator.of(context).pushReplacementNamed(HomePage.routeName);
     });
 
   }
@@ -59,9 +59,7 @@ class LaunchState extends State<LaunchPage> {
   @override
   void dispose() {
     super.dispose();
-    if (_timer != null) {
-      _timer = null;
-    }
+    _timer.cancel();
   }
 
   @override
