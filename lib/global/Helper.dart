@@ -8,6 +8,17 @@ const themeColor = Colors.brown;
 const bgColor = Colors.white;
 const int pageSize = 20;
 
+void tip(BuildContext context, String msg) {
+  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(msg),
+    duration: Duration(milliseconds: 2000),
+    behavior: SnackBarBehavior.floating,
+    // margin: EdgeInsets.fromLTRB(50.0, 5.0, 50.0, 200.0),
+    // margin: EdgeInsets.all(20.0),
+  ));
+}
+
 String sex(String idCard) {
   return '女';
 }
@@ -104,7 +115,7 @@ Widget rowTitle(text) {
   );
 }
 
-Widget rowUserTitle(title,title1,title2,title3,title4){
+Widget rowUserTitle(title, title1, title2, title3, title4) {
   return Container(
     width: 200,
     height: 80,
@@ -114,14 +125,18 @@ Widget rowUserTitle(title,title1,title2,title3,title4){
       children: [
         Row(
           children: [
-            rowBody(title,),
+            rowBody(
+              title,
+            ),
             rowBody(title1),
             rowBody(title2),
             rowBody(title3),
             rowBody(title4),
           ],
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Divider(
           height: 0.5,
           color: Colors.grey,
@@ -148,7 +163,9 @@ Widget rowContent(int index, UserItem userItem) {
             rowBody(userItem.nationName),
           ],
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Divider(
           height: 0.5,
           color: Colors.grey,
@@ -162,31 +179,41 @@ Widget noticeItem(NoticeItem noticeItem, onTap) {
   return Container(
     margin: margin(),
     height: 100,
-    child: Expanded(child: TextButton(
-      style: TextButton.styleFrom(alignment: Alignment.centerLeft),
-      onPressed: onTap,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            noticeItem.title,
-            style: TextStyle(
-                fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            noticeItem.content,
-            maxLines: 1,
-            style: TextStyle(fontSize: 16, color: Colors.black),
-          ),
-          Text(
-            '发布时间:${convertDate(noticeItem.createTime)}',
-            style: TextStyle(fontSize: 16, color: Colors.grey),
-          ),
-          Divider(height: 0.5,color: Colors.grey,),
-        ],
+    child: Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(alignment: Alignment.centerLeft),
+        onPressed: onTap,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              noticeItem.title,
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              noticeItem.content,
+              maxLines: 1,
+              style: TextStyle(fontSize: 16, color: Colors.black),
+            ),
+            Text(
+              '发布时间:${convertDate(noticeItem.createTime)}',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            Container(
+              height: 10.0,
+            ),
+            Divider(
+              height: 0.5,
+              color: Colors.grey,
+            ),
+          ],
+        ),
       ),
-    ),),
+    ),
   );
 }
 

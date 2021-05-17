@@ -540,47 +540,47 @@ class _SignUpPageState extends State<SignUpPage> {
 
   doSignUp() {
     if (_gartenName.contains('选择')) {
-      debugPrint('请选择幼儿园');
+      tip(context, '请选择幼儿园');
       return;
     }
 
     if (_idName.toString().trim().isEmpty) {
-      debugPrint('请输入幼儿真实姓名');
+      tip(context, '请输入幼儿真实姓名');
       return;
     }
 
     if (_idCard.toString().trim().isEmpty) {
-      debugPrint('请再次输入幼儿身份证号');
+      tip(context, '请再次输入幼儿身份证号');
       return;
     }
 
     if (_reIdCard.toString().trim().isEmpty) {
-      debugPrint('请再次输入身份证号');
+      tip(context, '请再次输入身份证号');
       return;
     }
 
     if (_reIdCard.toString().trim().compareTo(_idCard.toString().trim()) != 0) {
-      debugPrint('两次输入的身份证号不一致');
+      tip(context, '两次输入的身份证号不一致');
       return;
     }
 
     if (_nationName.contains('选择')) {
-      debugPrint('请选择幼儿民族');
+      tip(context, '请选择幼儿民族');
       return;
     }
 
     if (_patriarchName.toString().trim().isEmpty) {
-      debugPrint('请填写幼儿家长姓名');
+      tip(context, '请填写幼儿家长姓名');
       return;
     }
 
     if (_patriarchMobile.toString().trim().isEmpty) {
-      debugPrint('请填写幼儿家长电话');
+      tip(context, '请填写幼儿家长电话');
       return;
     }
 
     if (_patriarchAddress.toString().trim().isEmpty) {
-      debugPrint('请输入幼儿家庭住址');
+      tip(context, '请输入幼儿家庭住址');
       return;
     }
 
@@ -612,7 +612,7 @@ class _SignUpPageState extends State<SignUpPage> {
               patriarchAddressType: _patriarchAddressType,
               patriarchAddress: _patriarchAddress)
           .then((result) {
-        Navigator.of(context).pop();
+        tip(context, '报名信息修改成功');
       }).catchError((error) {});
     }
   }
